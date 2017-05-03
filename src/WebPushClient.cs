@@ -213,7 +213,7 @@ namespace WebPush
             {
 
                 Uri uri = new Uri(subscription.Endpoint);
-                string audience = uri.Scheme + Uri.SchemeDelimiter + uri.Host;
+                string audience = uri.Scheme + "://" + uri.Host;
 
                 Dictionary<string, string> vapidHeaders = VapidHelper.GetVapidHeaders(audience, currentVapidDetails.Subject, currentVapidDetails.PublicKey, currentVapidDetails.PrivateKey);
                 request.Headers.Add(@"Authorization", vapidHeaders["Authorization"]);
